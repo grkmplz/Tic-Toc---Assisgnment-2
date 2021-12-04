@@ -1,0 +1,284 @@
+using System;
+
+namespace ders2_dev
+{
+    class Program
+    {
+        enum Menu
+        {
+            Students_Detail = 1,
+            Display = 2,
+            Exit = 3
+        }
+        static void Main(string[] args)
+        {
+            char[] tables = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' };
+            char firstvalue = ' ';
+
+            int ince = 0;
+            string bilo = " ";
+            bool looptf = true;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("1. New Game");
+                Console.WriteLine("2. About the Author");
+                Console.WriteLine("3. Exit");
+                int menuval = Convert.ToInt32(Console.ReadLine());
+                Menu menuChoice = new Menu();
+                menuChoice = (Menu)menuval;
+                switch (menuval)
+                {
+                 case 1:
+                        do
+                        {
+                           ince = 0;
+                            firstvalue = 'X';
+                            Console.Clear();
+                            Console.WriteLine("First user is -X- , Second user is -0-");
+                            Console.WriteLine("welcome TictacToe");
+                            for (int i = 0; i < tables.Length; i++)
+                            {
+                                tables[i] = ' ';
+                            }
+                            bool keldon = true;
+                            do
+                            {
+                                Console.WriteLine("\n" + tables[0] + " | " + tables[1] + " | " + tables[2] + "\n----------\n" +
+                                                         tables[3] + " | " + tables[4] + " | " + tables[5] + "\n----------\n" +
+                                                         tables[6] + " | " + tables[7] + " | " + tables[8] + "\n");
+
+                                bool sameornot = true;
+                                do
+                                {
+                                    Console.Write(firstvalue + "'s move > ");
+                                    string read = Console.ReadLine();
+                                    if (read != "")
+                                    {
+                                        if (read == "1")
+                                        {
+                                            if (tables[0] == ' ')
+                                            {
+                                                tables[0] = firstvalue;
+                                                sameornot = false;
+                                                break;
+                                            }
+                                        }
+                                        if (read == "2")
+                                        {
+                                            if (tables[1] == ' ')
+                                            {
+                                                tables[1] = firstvalue;
+                                                sameornot = false;
+                                                break;
+                                            }
+                                        }
+                                        if (read == "3")
+                                        {
+                                            if (tables[2] == ' ')
+                                            {
+                                                tables[2] = firstvalue;
+                                                sameornot = false;
+                                                break;
+                                            }
+                                        }
+                                        if (read == "4")
+                                        {
+                                            if (tables[3] == ' ')
+                                            {
+                                                tables[3] = firstvalue;
+                                                sameornot = false;
+                                                break;
+                                            }
+                                        }
+                                        if (read == "5")
+                                        {
+                                            if (tables[4] == ' ')
+                                            {
+                                                tables[4] = firstvalue;
+                                                sameornot = false;
+                                                break;
+                                            }
+                                        }
+                                        if (read == "6")
+                                        {
+                                            if (tables[5] == ' ')
+                                            {
+                                                tables[5] = firstvalue;
+                                                sameornot = false;
+                                                break;
+                                            }
+                                        }
+                                        if (read == "7")
+                                        {
+                                            if (tables[6] == ' ')
+                                            {
+                                                tables[6] = firstvalue;
+                                                sameornot = false;
+                                                break;
+                                            }
+                                        }
+                                        if (read == "8")
+                                        {
+                                            if (tables[7] == ' ')
+                                            {
+                                                tables[7] = firstvalue;
+                                                sameornot = false;
+                                                break;
+                                            }
+                                        }
+                                        if (read == "9")
+                                        {
+                                            if (tables[8] == ' ')
+                                            {
+                                                tables[8] = firstvalue;
+                                                sameornot = false;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if (sameornot)
+                                    {
+
+                                        Console.WriteLine("illegal move! try again");
+                                    }
+                                } while (sameornot);
+                                ince++;
+                                if (tables[0] == 'X' || tables[0] == 'O' && tables[1] == 'X' || tables[1] == 'O' && tables[2] == 'X' || tables[2] == 'O')
+                                {
+                                    if (tables[0] == tables[1] && tables[1] == tables[2] && tables[0] == tables[2])
+                                    {
+                                        Console.WriteLine("\n" + tables[0] + " | " + tables[1] + " | " + tables[2] + "\n----------\n" +
+                                                             tables[3] + " | " + tables[4] + " | " + tables[5] + "\n----------\n" +
+                                                             tables[6] + " | " + tables[7] + " | " + tables[8] + "\n");
+                                        Console.WriteLine(firstvalue + "  won! ");
+
+                                        break;
+                                    }
+                                }
+                                if (tables[0] == 'X' || tables[0] == 'O' && tables[3] == 'X' || tables[3] == 'O' && tables[6] == 'X' || tables[6] == 'O')
+                                {
+                                    if (tables[0] == tables[3] && tables[3] == tables[6] && tables[0] == tables[6])
+                                    {
+                                        Console.WriteLine("\n" + tables[0] + " | " + tables[1] + " | " + tables[2] + "\n----------\n" +
+                                                             tables[3] + " | " + tables[4] + " | " + tables[5] + "\n----------\n" +
+                                                             tables[6] + " | " + tables[7] + " | " + tables[8] + "\n");
+                                        Console.WriteLine(firstvalue + "  won! ");
+
+                                        break;
+                                    }
+                                }
+                                if (tables[3] == 'X' || tables[3] == 'O' && tables[4] == 'X' || tables[4] == 'O' && tables[5] == 'X' || tables[5] == 'O')
+                                {
+                                    if (tables[3] == tables[4] && tables[4] == tables[5] && tables[3] == tables[5])
+                                    {
+                                        Console.WriteLine("\n" + tables[0] + " | " + tables[1] + " | " + tables[2] + "\n----------\n" +
+                                                             tables[3] + " | " + tables[4] + " | " + tables[5] + "\n----------\n" +
+                                                             tables[6] + " | " + tables[7] + " | " + tables[8] + "\n");
+                                        Console.WriteLine(firstvalue + "  won! ");
+
+                                        break;
+                                    }
+                                }
+                                if (tables[6] == 'X' || tables[6] == 'O' && tables[7] == 'X' || tables[7] == 'O' && tables[8] == 'X' || tables[8] == 'O')
+                                {
+                                    if (tables[6] == tables[7] && tables[7] == tables[8] && tables[6] == tables[8])
+                                    {
+                                        Console.WriteLine("\n" + tables[0] + " | " + tables[1] + " | " + tables[2] + "\n----------\n" +
+                                                             tables[3] + " | " + tables[4] + " | " + tables[5] + "\n----------\n" +
+                                                             tables[6] + " | " + tables[7] + " | " + tables[8] + "\n");
+                                        Console.WriteLine(firstvalue + "  won! ");
+
+                                        break;
+                                    }
+                                }
+                                if (tables[1] == 'X' || tables[1] == 'O' && tables[4] == 'X' || tables[4] == 'O' && tables[7] == 'X' || tables[7] == 'O')
+                                {
+                                    if (tables[1] == tables[4] && tables[4] == tables[7] && tables[1] == tables[7])
+                                    {
+                                        Console.WriteLine("\n" + tables[0] + " | " + tables[1] + " | " + tables[2] + "\n----------\n" +
+                                                             tables[3] + " | " + tables[4] + " | " + tables[5] + "\n----------\n" +
+                                                             tables[6] + " | " + tables[7] + " | " + tables[8] + "\n");
+                                        Console.WriteLine(firstvalue + "  won! ");
+
+                                        break;
+                                    }
+                                }
+                                if (tables[2] == 'X' || tables[2] == 'O' && tables[5] == 'X' || tables[5] == 'O' && tables[8] == 'X' || tables[8] == 'O')
+                                {
+                                    if (tables[2] == tables[5] && tables[5] == tables[8] && tables[2] == tables[8])
+                                    {
+                                        Console.WriteLine("\n" + tables[0] + " | " + tables[1] + " | " + tables[2] + "\n----------\n" +
+                                                             tables[3] + " | " + tables[4] + " | " + tables[5] + "\n----------\n" +
+                                                             tables[6] + " | " + tables[7] + " | " + tables[8] + "\n");
+                                        Console.WriteLine(firstvalue + "  won! ");
+
+                                        break;
+                                    }
+                                }
+                                if (tables[0] == 'X' || tables[0] == 'O' && tables[4] == 'X' || tables[4] == 'O' && tables[8] == 'X' || tables[8] == 'O')
+                                {
+                                    if (tables[0] == tables[4] && tables[4] == tables[8] && tables[0] == tables[8])
+                                    {
+                                        Console.WriteLine("\n" + tables[0] + " | " + tables[1] + " | " + tables[2] + "\n----------\n" +
+                                                             tables[3] + " | " + tables[4] + " | " + tables[5] + "\n----------\n" +
+                                                             tables[6] + " | " + tables[7] + " | " + tables[8] + "\n");
+                                        Console.WriteLine(firstvalue + "  won! ");
+
+                                        break;
+                                    }
+                                }
+                                if (tables[2] == 'X' || tables[2] == 'O' && tables[4] == 'X' || tables[4] == 'O' && tables[6] == 'X' || tables[6] == 'O')
+                                {
+                                    if (tables[2] == tables[4] && tables[4] == tables[6] && tables[2] == tables[6])
+                                    {
+                                        Console.WriteLine("\n" + tables[0] + " | " + tables[1] + " | " + tables[2] + "\n----------\n" +
+                                                             tables[3] + " | " + tables[4] + " | " + tables[5] + "\n----------\n" +
+                                                             tables[6] + " | " + tables[7] + " | " + tables[8] + "\n");
+                                        Console.WriteLine(firstvalue + "  won! ");
+                                        break;
+                                    }
+                                }
+                                for (int k = 0; k < 1; k++)
+                                {
+                                    if (firstvalue == 'X')
+                                    {
+                                        firstvalue = 'O';
+                                    }
+                                    else
+                                    {
+                                        firstvalue = 'X';
+                                    }
+                                }
+                            } while (keldon);
+                            Console.WriteLine("[Press Enter to return to main menu...]");
+                            bilo = Console.ReadLine();
+                        } while (bilo == "y");
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.WriteLine("  Görkem Palaz ,I am 19 years old " + "\n" + "  I am originally from Turkey but I live in Poland/ Poznan");
+                        Console.WriteLine("\n" + "[Press Enter to return to main menu...]");
+                        string dong = Console.ReadLine();
+                        if (dong == "y")
+                        {
+                            break;
+                        }
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Console.WriteLine("Are you sure you want to quit? [y/n]");
+                        string kel = Console.ReadLine();
+                        if (kel == "y")
+                        {
+                            looptf = false;
+                            Console.Clear();
+                            Console.WriteLine("Thank you for your attention , see yeah !");
+                            break;
+                        }
+                        break;
+                }
+            } while (looptf);
+        }
+    }
+}
